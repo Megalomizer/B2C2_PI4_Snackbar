@@ -45,15 +45,30 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HttpGet("Authentication/{id}")]
+        public async Task<ActionResult<Customer>> GetCustomer(string id)
+        {
+            Customer customer = await _context.Customers.Where(c => c.AuthenticationId == id).FirstAsync();
+
+            if (customer == null)
+                customer = new Customer();
+
+            return customer;
+        }
+
+        // GET: api/Customers/5
+        /// <summary>
+        /// Get a specific customer
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
             Customer customer = await _context.Customers.Where(c => c.Id == id).FirstAsync();
 
             if (customer == null)
-            {
-                return NotFound();
-            }
+                customer = new Customer();
 
             return customer;
         }
@@ -106,10 +121,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-          if (_context.Customers == null)
-          {
-              return Problem("Entity set 'SystemDbContext.Customer'  is null.");
-          }
+            if (_context.Customers == null)
+            {
+                return Problem("Entity set 'SystemDbContext.Customer'  is null.");
+            }
+
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
 

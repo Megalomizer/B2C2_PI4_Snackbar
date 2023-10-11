@@ -10,6 +10,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.CustomersController.GetCustomer(System.String)">
+            <summary>
+            Get a specific customer
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.CustomersController.GetCustomer(System.Int32)">
             <summary>
             Get a specific customer

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace SnackbarB2C2PI4_LeviFunk_ClassLibrary
 {
@@ -14,6 +15,7 @@ namespace SnackbarB2C2PI4_LeviFunk_ClassLibrary
         [Required]
         public string? Email { get; set; }
         public string? Phone {  get; set; }
+        public string? AuthenticationId { get; set; }
 
         // Relational Properties
         public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
