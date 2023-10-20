@@ -12,12 +12,19 @@ using SnackbarB2C2PI4_LeviFunk_MVC.Data;
 
 namespace SnackbarB2C2PI4_LeviFunk_API
 {
+    /// <summary>
+    /// The controller class
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
         private readonly LibraryDbContext _context;
 
+        /// <summary>
+        /// The constructor of the controller
+        /// </summary>
+        /// <param name="context"></param>
         public ProductsController(LibraryDbContext context)
         {
             _context = context;

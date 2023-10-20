@@ -4,6 +4,17 @@
         <name>SnackbarB2C2PI4_LeviFunk_API</name>
     </assembly>
     <members>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.CustomersController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.CustomersController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            Constructor for the controller
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.CustomersController.GetCustomer">
             <summary>
             Get a list of customers
@@ -46,6 +57,24 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.CustomersController.CustomerExists(System.Int32)">
+            <summary>
+            Check if the customer already exists in the database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            The constructor for the controller
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController.GetOrderProducts(System.Int32)">
             <summary>
             Get a list of all products for an order
@@ -75,12 +104,37 @@
             <param name="orderProduct"></param>
             <returns></returns>
         </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController.PostOrderProduct(System.Collections.Generic.List{SnackbarB2C2PI4_LeviFunk_ClassLibrary.OrderProduct})">
+            <summary>
+            Create new Orderproducts for an order in the database
+            </summary>
+            <param name="orderProducts"></param>
+            <returns></returns>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController.DeleteOrderProduct(System.Int32,System.Int32)">
             <summary>
             Delete the product
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrderProductsController.OrderProductExists(System.Int32)">
+            <summary>
+            Check if the orderproduct already exists in the database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.OrdersController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrdersController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            Constructor of the controller
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrdersController.GetOrders">
             <summary>
@@ -110,12 +164,37 @@
             <param name="order"></param>
             <returns></returns>
         </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrdersController.PostOrderProduct(System.Collections.Generic.List{SnackbarB2C2PI4_LeviFunk_ClassLibrary.OrderProduct})">
+            <summary>
+            Save the list of order products to the database
+            </summary>
+            <param name="products"></param>
+            <returns></returns>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrdersController.DeleteOrder(System.Int32)">
             <summary>
             Delete the order
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OrdersController.OrderExists(System.Int32)">
+            <summary>
+            Check if the order already exists in the database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.OwnersController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OwnersController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            The constructor of the controller
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.OwnersController.GetOwners">
             <summary>
@@ -151,6 +230,24 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.OwnersController.OwnerExists(System.Int32)">
+            <summary>
+            Check if an owner already exists in the database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.ProductsController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.ProductsController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            The constructor of the controller
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.ProductsController.GetProducts">
             <summary>
@@ -194,6 +291,17 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:SnackbarB2C2PI4_LeviFunk_API.TransactionsController">
+            <summary>
+            The controller class
+            </summary>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.TransactionsController.#ctor(SnackbarB2C2PI4_LeviFunk_MVC.Data.LibraryDbContext)">
+            <summary>
+            The constructor of the controller
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.TransactionsController.GetTransactions">
             <summary>
             Get a list of all transactions
@@ -225,6 +333,13 @@
         <member name="M:SnackbarB2C2PI4_LeviFunk_API.TransactionsController.DeleteTransaction(System.Int32)">
             <summary>
             Delete a transaction
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SnackbarB2C2PI4_LeviFunk_API.TransactionsController.TransactionExists(System.Int32)">
+            <summary>
+            Check if the transaction already exists in the database
             </summary>
             <param name="id"></param>
             <returns></returns>

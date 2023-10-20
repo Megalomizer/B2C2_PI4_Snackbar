@@ -10,12 +10,19 @@ using SnackbarB2C2PI4_LeviFunk_ClassLibrary;
 
 namespace SnackbarB2C2PI4_LeviFunk_API
 {
+    /// <summary>
+    /// The controller class
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
         private readonly LibraryDbContext _context;
 
+        /// <summary>
+        /// Constructor for the controller
+        /// </summary>
+        /// <param name="context"></param>
         public CustomersController(LibraryDbContext context)
         {
             _context = context;
@@ -154,6 +161,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             return NoContent();
         }
 
+        /// <summary>
+        /// Check if the customer already exists in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool CustomerExists(int id)
         {
             return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();

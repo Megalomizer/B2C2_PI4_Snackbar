@@ -5,17 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SnackbarB2C2PI4_LeviFunk_ClassLibrary;
 using SnackbarB2C2PI4_LeviFunk_MVC.Data;
 
 namespace SnackbarB2C2PI4_LeviFunk_API
 {
-    [Route("api/[controller]")]
+    /// <summary>
+    /// The controller class
+    /// </summary>
     [ApiController]
+    [Route("api/[controller]")]
     public class OrdersController : ControllerBase
     {
         private readonly LibraryDbContext _context;
 
+        /// <summary>
+        /// Constructor of the controller
+        /// </summary>
+        /// <param name="context"></param>
         public OrdersController(LibraryDbContext context)
         {
             _context = context;
@@ -32,9 +40,7 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             List<Order> orders = await _context.Orders.ToListAsync();
 
             if (orders == null)
-            {
                 return NotFound();
-            }
 
             return orders;
         }
@@ -48,12 +54,30 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            Order order = await _context.Orders.Where(o => o.Id == id).FirstAsync();
+            Order order = await _context.Orders
+                .Where(o => o.Id == id)
+                .FirstAsync();
 
             if (order == null)
-            {
                 return NotFound();
+
+            // Add orderproducts to order
+            List<OrderProduct> orderProducts = await _context.OrderProducts
+                .Where(o => o.OrderId == order.Id)
+                .ToListAsync();
+
+            // Convert from orderproducts to product list
+            List<Product> products = new List<Product>();
+            foreach(OrderProduct product in orderProducts)
+            {
+                for(int i = 1; i <= product.Amount; i++)
+                {
+                    Product p = await _context.Products.Where(a => a.Id == product.ProductId).FirstAsync();
+                    products.Add(p);
+                }
             }
+
+            order.Products = products;
 
             return order;
         }
@@ -70,9 +94,7 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
             if (id != order.Id)
-            {
                 return BadRequest();
-            }
 
             // Set all properties of the product to the modified state
             _context.Entry(order).State = EntityState.Modified;
@@ -104,16 +126,100 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         /// <param name="order"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Order>> PostOrder([FromBody] Order order) 
         {
-            if (_context.Orders == null)
+            /*if (_context.Orders == null)
+                return Problem("Entity set 'SystemDbContext.Orders'  is null.");*/
+
+            // Calculate the cost of the order and add all products to a dictionairy with their amount
+            decimal cost = 0;
+            Dictionary<int, int> dictProducts = new Dictionary<int, int>();
+            if(order.Products != null)
             {
-                return Problem("Entity set 'SystemDbContext.Orders'  is null.");
+                foreach (Product product in order.Products)
+                {
+                    cost += product.Price;
+
+                    if (!dictProducts.ContainsKey(product.Id))
+                    {
+                        dictProducts[product.Id] = 1;
+                    }
+                    else
+                    {
+                        dictProducts[product.Id] += 1;
+                    }
+                }
             }
-            _context.Orders.Add(order);
+
+            //Make sure nothing is null
+            if (order.Customer == null)
+            {
+                order.Customer = new Customer();
+                order.Customer.Id = 0;
+            }
+                
+            if (order.Transaction == null)
+            {
+                order.Transaction = new Transaction();
+                order.Transaction.Id = 0;
+            }
+
+            // Create order and add it to the database
+            Order o = new Order()
+            {
+                //Id = 0,
+                Cost = cost,
+                DateOfOrder = DateTime.Now,
+                IsFavorited = false,
+                Status = "Has not been ordered",
+                //Customer = order.Customer,
+                //Transaction = order.Transaction,
+                //Products = order.Products,
+            };
+
+            // Save order
+            _context.Orders.Add(o);
             await _context.SaveChangesAsync();
 
+            // Get the list of all order products
+            o = _context.Orders.Where(a => a.Id == o.Id).First();
+
+            List<OrderProduct> products = new List<OrderProduct>();
+            foreach (KeyValuePair<int, int> kvp in dictProducts)
+            {
+                OrderProduct orderProduct = new OrderProduct()
+                {
+                    OrderId = o.Id,
+                    ProductId = kvp.Key,
+                    Amount = kvp.Value,
+                };
+                products.Add(orderProduct);
+            }
+
+            // Check if the list of products is not empty, then save it
+            if (!products.IsNullOrEmpty())
+            {
+                await PostOrderProduct(products);
+            }
+
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+        }
+
+        /// <summary>
+        /// Save the list of order products to the database
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
+        private async Task PostOrderProduct(List<OrderProduct> products)
+        {
+            if (products.IsNullOrEmpty())
+                return;
+
+            foreach(OrderProduct product in products)
+            {
+                await _context.OrderProducts.AddAsync(product);
+            }
+            await _context.SaveChangesAsync();            
         }
 
         // DELETE: api/Orders/5
@@ -125,12 +231,10 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-            var order = await _context.Orders.Where(o => o.Id == id).FirstAsync();
+            Order order = await _context.Orders.Where(o => o.Id == id).FirstAsync();
 
             if (order == null)
-            {
                 return NotFound();
-            }
 
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
@@ -138,6 +242,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             return NoContent();
         }
 
+        /// <summary>
+        /// Check if the order already exists in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool OrderExists(int id)
         {
             return (_context.Orders?.Any(e => e.Id == id)).GetValueOrDefault();

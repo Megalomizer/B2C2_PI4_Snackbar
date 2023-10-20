@@ -10,12 +10,19 @@ using SnackbarB2C2PI4_LeviFunk_MVC.Data;
 
 namespace SnackbarB2C2PI4_LeviFunk_API
 {
+    /// <summary>
+    /// The controller class
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TransactionsController : ControllerBase
     {
         private readonly LibraryDbContext _context;
 
+        /// <summary>
+        /// The constructor of the controller
+        /// </summary>
+        /// <param name="context"></param>
         public TransactionsController(LibraryDbContext context)
         {
             _context = context;
@@ -138,6 +145,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             return NoContent();
         }
 
+        /// <summary>
+        /// Check if the transaction already exists in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool TransactionExists(int id)
         {
             return (_context.Transactions?.Any(e => e.Id == id)).GetValueOrDefault();

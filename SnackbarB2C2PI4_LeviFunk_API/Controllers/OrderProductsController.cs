@@ -10,12 +10,19 @@ using SnackbarB2C2PI4_LeviFunk_MVC.Data;
 
 namespace SnackbarB2C2PI4_LeviFunk_API
 {
+    /// <summary>
+    /// The controller class
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class OrderProductsController : ControllerBase
     {
         private readonly LibraryDbContext _context;
 
+        /// <summary>
+        /// The constructor for the controller
+        /// </summary>
+        /// <param name="context"></param>
         public OrderProductsController(LibraryDbContext context)
         {
             _context = context;
@@ -108,18 +115,38 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         /// </summary>
         /// <param name="orderProduct"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("PostAnOrderProduct")]
         public async Task<ActionResult<OrderProduct>> PostOrderProduct(OrderProduct orderProduct)
         {
             if (_context.OrderProducts == null)
-            {
                 return Problem("Entity set 'SystemDbContext.OrderProducts'  is null.");
-            }
 
             _context.OrderProducts.Add(orderProduct);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrderProduct", new { id = orderProduct.OrderId }, orderProduct);
+        }
+
+        // POST: api/OrderProducts
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Create new Orderproducts for an order in the database
+        /// </summary>
+        /// <param name="orderProducts"></param>
+        /// <returns></returns>
+        [HttpPost("PostAllNewOrderProducts")]
+        public async Task<IActionResult> PostOrderProduct(List<OrderProduct> orderProduct)
+        {
+            if (_context.OrderProducts == null)
+                return Problem("Entity set 'SystemDbContext.OrderProducts'  is null.");
+
+            foreach(OrderProduct product in orderProduct)
+            {
+                _context.OrderProducts.Add(product);
+            }
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         // DELETE: api/OrderProducts/5
@@ -144,6 +171,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             return NoContent();
         }
 
+        /// <summary>
+        /// Check if the orderproduct already exists in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool OrderProductExists(int id)
         {
             return (_context.OrderProducts?.Any(e => e.OrderId == id)).GetValueOrDefault();

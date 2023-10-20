@@ -8,6 +8,8 @@ namespace SnackbarB2C2PI4_LeviFunk_ClassLibrary
     {
         #region Properties
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [DataType(DataType.Currency)]
@@ -19,10 +21,10 @@ namespace SnackbarB2C2PI4_LeviFunk_ClassLibrary
 
         // Relational Properties
         public Customer? Customer { get; set; }
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         public Transaction? Transaction { get; set; }
-        public int TransactionId { get; set; }
+        public int? TransactionId { get; set; }
 
         public virtual ICollection<Product>? Products { get; set; }
 
