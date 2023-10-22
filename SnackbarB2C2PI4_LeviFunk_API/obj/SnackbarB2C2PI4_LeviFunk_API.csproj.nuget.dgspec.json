@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj": {}
+    "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj": {
+    "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
+        "projectUniqueName": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
         "projectName": "SnackbarB2C2PI4_LeviFunk_API",
-        "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
+        "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
         "packagesPath": "C:\\Users\\levif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\obj\\",
+        "outputPath": "C:\\Users\\levif\\source\\repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
-                "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj"
+              "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
+                "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj"
               },
-              "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj": {
-                "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj"
+              "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj": {
+                "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
+    "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj",
         "projectName": "SnackbarB2C2PI4_LeviFunk_DataLibrary",
-        "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj",
+        "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj",
         "packagesPath": "C:\\Users\\levif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\obj\\",
+        "outputPath": "C:\\Users\\levif\\source\\repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -178,14 +178,14 @@
         }
       }
     },
-    "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj": {
+    "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj",
+        "projectUniqueName": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj",
         "projectName": "SnackbarB2C2PI4_LeviFunk_MVC",
-        "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj",
+        "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\SnackbarB2C2PI4_LeviFunk_MVC.csproj",
         "packagesPath": "C:\\Users\\levif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\obj\\",
+        "outputPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -207,8 +207,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
-                "projectPath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj"
+              "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj": {
+                "projectPath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_DataLibrary\\SnackbarB2C2PI4_LeviFunk_DataLibrary.csproj"
               }
             }
           }

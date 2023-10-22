@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\SnackbarB2C2PI4_LeviFunk_MVC",
-    "\\SnackbarB2C2PI4_LeviFunk_MVC\\Controllers",
-    "\\SnackbarB2C2PI4_LeviFunk_MVC\\Data"
+    ""
   ],
-  "SelectedNode": "\\SnackbarB2C2PI4_LeviFunk_MVC\\Data\\LibraryDbContext.cs",
+  "SelectedNode": "\\SnackbarB2C2PI4_LeviFunk_MVC.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nwSmr8TYJVnWyoNPOitY5URg46BCvED9iDS527Whlc0grRt2e3722ZkFDgUJNDtlMMLmGCSIUajlvPQdDEo0Lg==",
+  "dgSpecHash": "79jV8oeV1NmzPUNU3QyzKM/zL3IYNlIOHhPbVTnLAFqyBCABc28LR0tZv9Izocf04fm2xQb0EAaNG/RI2x5ytA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\levif\\source\\repos\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
+  "projectFilePath": "C:\\Users\\levif\\Source\\Repos\\PI4-B2C2-SnackBarWebApp\\B2C2Snackbar_PI4\\SnackbarB2C2PI4_LeviFunk_API\\SnackbarB2C2PI4_LeviFunk_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\levif\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\levif\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
