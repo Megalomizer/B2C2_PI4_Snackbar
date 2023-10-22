@@ -45,13 +45,29 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             return orders;
         }
 
+        // GET: api/Orders
+        /// <summary>
+        /// Get a list of all orders from a customer
+        /// </summary>
+        /// <returns>List(Order)</returns>
+        [HttpGet("CustomerOrders/{id}")]
+        public async Task<ActionResult<IEnumerable<Order>>> GetOrders(int id)
+        {
+            List<Order> orders = await _context.Orders.Where(o => o.CustomerId == id).ToListAsync();
+
+            if (orders == null)
+                return NotFound();
+
+            return orders;
+        }
+
         // GET: api/Orders/5
         /// <summary>
         /// Get a specific order
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Order</returns>
-        [HttpGet("{id}")]
+        [HttpGet("SpecificOrder/{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
             Order order = await _context.Orders
@@ -61,23 +77,21 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             if (order == null)
                 return NotFound();
 
-            // Add orderproducts to order
-            List<OrderProduct> orderProducts = await _context.OrderProducts
-                .Where(o => o.OrderId == order.Id)
-                .ToListAsync();
-
-            // Convert from orderproducts to product list
-            List<Product> products = new List<Product>();
-            foreach(OrderProduct product in orderProducts)
+            //Avoid circular reference
+            if(order.Customer != null)
             {
-                for(int i = 1; i <= product.Amount; i++)
-                {
-                    Product p = await _context.Products.Where(a => a.Id == product.ProductId).FirstAsync();
-                    products.Add(p);
-                }
+                order.CustomerId = order.Customer.Id;
+                order.Customer = null;
             }
-
-            order.Products = products;
+            if(order.Transaction != null)
+            {
+                order.TransactionId = order.Transaction.Id;
+                order.Transaction = null;
+            }
+            if(order.Products != null)
+            {
+                order.Products = null;
+            }
 
             return order;
         }
@@ -153,7 +167,7 @@ namespace SnackbarB2C2PI4_LeviFunk_API
 
             //Make sure nothing is null
             if (order.Customer == null)
-            {
+            { 
                 order.Customer = new Customer();
                 order.Customer.Id = 0;
             }
@@ -167,11 +181,11 @@ namespace SnackbarB2C2PI4_LeviFunk_API
             // Create order and add it to the database
             Order o = new Order()
             {
-                //Id = 0,
                 Cost = cost,
                 DateOfOrder = DateTime.Now,
                 IsFavorited = false,
                 Status = "Has not been ordered",
+                CustomerId = order.Customer.Id,
                 //Customer = order.Customer,
                 //Transaction = order.Transaction,
                 //Products = order.Products,

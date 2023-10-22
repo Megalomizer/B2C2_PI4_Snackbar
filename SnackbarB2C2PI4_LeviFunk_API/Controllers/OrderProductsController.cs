@@ -33,7 +33,7 @@ namespace SnackbarB2C2PI4_LeviFunk_API
         /// Get a list of all products for an order
         /// </summary>
         /// <returns>order.products --> List(OrderProducts)</returns>
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<OrderProduct>>> GetOrderProducts(int id)
         {
             List<OrderProduct> orderProducts = await _context.OrderProducts.Where(o => o.OrderId == id).ToListAsync();
